@@ -13,6 +13,7 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
+            position: relative; /* Necessário para posicionar o texto no canto inferior esquerdo */
         }
         
         .titulo {
@@ -68,6 +69,24 @@
             object-fit: cover;
             z-index: 10;
         }
+
+        /* Estilo para o texto "By: KalyLove" */
+        .creditos {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-family: Arial, sans-serif;
+            color: white;
+            font-size: 14px;
+        }
+
+        .creditos span {
+            color: lightblue; /* Cor azul claro para o seu nome */
+        }
+
+        .creditos span:first-child {
+            color: white; /* Cor branca para "By" */
+        }
     </style>
 </head>
 <body>
@@ -80,6 +99,12 @@
         </div>
         <img id="imagem" src="https://cdn.pixabay.com/photo/2022/10/05/05/40/sunset-7499759_960_720.jpg" alt="Imagem">
     </div>
+
+    <!-- Créditos na parte inferior esquerda -->
+    <div class="creditos">
+        <span>By:</span> <span>KALYLOVEE</span>
+    </div>
+
     <script>
         // Ao clicar no botão "Sim"
         document.getElementById('botaoSim').addEventListener('click', function() {
