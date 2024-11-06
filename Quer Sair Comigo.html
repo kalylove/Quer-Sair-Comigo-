@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quer Sair Comigo?😊</title>
+    <style>
+        body {
+            background-image: linear-gradient(45deg, rgb(255, 0, 0), rgb(0, 69, 196));
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .titulo {
+            background-image: linear-gradient(45deg, rgb(158, 95, 1));
+            position: relative;
+            margin: 50px;
+            padding: 50px;
+            border-radius: 15px;
+            color: white;
+            text-align: center;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        h1 {
+            font-weight: 300;
+        }
+
+        button {
+            padding: 10px 40px;
+            border-radius: 5px;
+            font-family: "Roboto", sans-serif;
+            border: transparent;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            position: relative;
+        }
+
+        button:first-child {
+            background-color: rgb(0, 225, 255);
+            color: rgb(255, 255, 255);
+        }
+
+        button:nth-child(2) {
+            background-color: rgb(255, 0, 0);
+            color: white;
+        }
+
+        div.buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+
+        #imagem {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <div class="titulo">
+        <h1>Quer sair comigo?</h1>
+        <div class="cor"></div>
+        <div class='buttons'>
+            <button id="botaoSim">Sim</button>
+            <button id="botaoNao">Não</button>
+        </div>
+        <img id="imagem" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0fsTixkkZpKKcNoemIYCjwpH4MIEMlKNvdg&s" alt="Imagem">
+    </div>
+    <script>
+        // Ao clicar no botão "Sim"
+        document.getElementById('botaoSim').addEventListener('click', function() {
+            alert("Ótimo. Vamos para a Itália!");
+            document.getElementById('imagem').style.display = 'block';
+        });
+
+        var botaoNao = document.getElementById('botaoNao');
+        var positions = [
+            {left: '10px', top: '10px'},
+            {left: 'calc(100% - 100px)', top: '10px'},
+            {left: '10px', top: 'calc(100% - 50px)'},
+            {left: 'calc(100% - 100px)', top: 'calc(100% - 50px)'},
+            {left: '50%', top: '10%'},
+            {left: '50%', top: 'calc(100% - 50px)'},
+            {left: '10%', top: '50%'},
+            {left: 'calc(100% - 100px)', top: '50%'}
+        ];
+        var currentIndex = 0;
+
+        // Para desktop
+        botaoNao.addEventListener('mouseover', moveBotaoNao);
+
+        // Para dispositivos móveis
+        botaoNao.addEventListener('touchstart', function(event) {
+            event.preventDefault(); // Evitar o comportamento padrão de "toque"
+            moveBotaoNao();
+        });
+
+        function moveBotaoNao() {
+            currentIndex = (currentIndex + 1) % positions.length;
+            botaoNao.style.position = 'absolute'; // Garantir que a posição é absoluta para movimento
+            botaoNao.style.left = positions[currentIndex].left;
+            botaoNao.style.top = positions[currentIndex].top;
+        }
+    </script>
+</body>
+</html>
