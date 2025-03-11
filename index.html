@@ -13,7 +13,7 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
-            position: relative; /* Necessário para posicionar o texto no canto inferior esquerdo */
+            position: relative;
         }
         
         .titulo {
@@ -70,7 +70,7 @@
             z-index: 10;
         }
 
-        /* Estilo para o texto "By: KalyLove" */
+
         .creditos {
             position: absolute;
             bottom: 20px;
@@ -81,11 +81,11 @@
         }
 
         .creditos span {
-            color: lightblue; /* Cor azul claro para o seu nome */
+            color: lightblue; 
         }
 
         .creditos span:first-child {
-            color: white; /* Cor branca para "By" */
+            color: white; 
         }
     </style>
 </head>
@@ -97,10 +97,9 @@
             <button id="botaoSim">Sim</button>
             <button id="botaoNao">Não</button>
         </div>
-        <img id="imagem" src="https://cdn.pixabay.com/photo/2022/10/05/05/40/sunset-7499759_960_720.jpg" alt="Imagem">
+        <img id="imagem" src="https://media.istockphoto.com/id/2175060740/pt/foto/ice-cream-date.jpg?s=1024x1024&w=is&k=20&c=t4ON8LeGZZyH73WWxtN6Dx9-POtwyupUiiQKYBjfgcw=" alt="Imagem">
     </div>
 
-    <!-- Créditos na parte inferior esquerda -->
     <div class="creditos">
         <span>By:</span> <span>KALYLOVEE</span>
     </div>
@@ -108,7 +107,7 @@
     <script>
         // Ao clicar no botão "Sim"
         document.getElementById('botaoSim').addEventListener('click', function() {
-            alert("Ótimo! Vamos para a Grécia!");
+            alert("Ótimo! Vamos tomar sorvete!");
             document.getElementById('imagem').style.display = 'block';
         });
 
@@ -130,13 +129,13 @@
 
         // Para dispositivos móveis
         botaoNao.addEventListener('touchstart', function(event) {
-            event.preventDefault(); // Evitar o comportamento padrão de "toque"
+            event.preventDefault(); 
             moveBotaoNao();
         });
 
         function moveBotaoNao() {
             currentIndex = (currentIndex + 1) % positions.length;
-            botaoNao.style.position = 'absolute'; // Garantir que a posição é absoluta para movimento
+            botaoNao.style.position = 'absolute'; 
             botaoNao.style.left = positions[currentIndex].left;
             botaoNao.style.top = positions[currentIndex].top;
         }
